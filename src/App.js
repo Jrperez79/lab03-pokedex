@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import request from 'superagent';
+import Header from './Header.js';
+import PokesList from './PokesList.js';
+import PokeSearch from './PokeSearch.js';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+export default class App extends Component {
+  state = {
+    search: '',
+    pokeState: [],
+  }
+  
+  handleSubmit = async () => {
+    const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=800&pokemon=${this.state.search}`)
+
+    this.setState({
+      pokeState: data.body.results
+    })
+  }
+
+  handlePokeSearch = (e) => {
+    const value = e.target.value;
+    this.setState({search: value });
+  }
+
+  render() {
+    return (
+      <main>
+          <Header />
+          <div>
+            <PokeSearch handlePokeSearch={this.handlePokeSearch} />
+            <button onClick={this.handleSubmit}>Click to Find Pokemon</button>
+          </div>
+         <PokesList showPokes={this.state.pokeState} />
+      </main>
+    )
+  }
 }
 
-export default App;
