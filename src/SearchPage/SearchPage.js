@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import './App.css';
 import request from 'superagent';
-import PokeList from './PokesList.js';
-
+import PokesList from './PokesList.js';
 
 export default class SearchPage extends Component {
     state = {
@@ -38,9 +36,7 @@ export default class SearchPage extends Component {
                 </select>
                 <button onClick={this.handleClick}>Find a Pokemon</button>
                 {
-                    isLoading
-                    ? <p>LOADING</p>
-                    : pokeState.map(poke => <PokeItem key={poke} pokemon={poke} />)
+                    pokeState.map(poke => <PokesList key={poke} pokemon={poke} />)
                 }
             </div>
         );

@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import SearchPage from './SearchPage/SearchPage.js';
 import DetailPage from './DetailPage/DetailPage.js';
-import './App.css';
+import styles from './App.css';
 
 
 
@@ -16,7 +16,7 @@ export default class App extends Component {
     return (
       <>
       <div>
-          <Route>
+          <Router>
               <header>
                 <li>
                   <Link to="/detail">Detail</Link>
@@ -37,7 +37,7 @@ export default class App extends Component {
                     render={(routerProps) => <DetailPage {...routerProps} />}
                   />
               </Switch>
-          </Route>
+          </Router>
       </div>
       </>
     )
