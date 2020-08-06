@@ -7,10 +7,10 @@ export default class PokesList extends Component {
                 <ul className="poke-list">
                     {this.props.showPokes.map(poke => (
                     <li key={poke.id}>
-                        <h1>{poke.pokemon}</h1>
+                        <h3>{poke.pokemon}</h3>
                         <img src={poke.url_image} alt="" />
-                    <p className="height">Height: {poke.height}</p>
-                    <p className="weight">Weight: {poke.weight}</p>
+                    <p className="height">Height: {poke.height}ft</p>
+                    <p className="weight">Weight: {poke.weight}lbs</p>
                     <p className="attack">Attack: {poke.attack}</p>
                     <p className="defense">Defense: {poke.defense}</p>
                     </li>))}

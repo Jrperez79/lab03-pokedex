@@ -11,29 +11,29 @@ export default class App extends Component {
   state = {
     search: '',
     pokeState: [],
-    isLoading: false,
   }
   
-  handleClick = async () => {
-    this.setState({isLoading: true})
+  handleSubmit = async () => {
     const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=800&pokemon=${this.state.search}`)
 
     this.setState({
-      pokeState: data.body.results,
-      isLoading: false
+      pokeState: data.body.results
     })
   }
 
   handlePokeSearch = (e) => {
-    this.setState({search: e.target.value})
+    const value = e.target.value;
+    this.setState({search: value });
   }
 
   render() {
     return (
       <main>
           <Header />
-          <PokeSearch handleSearch={this.handlePokeSearch} />
-          <button onClick={this.handleClick}>Click to Find Pokemon</button>
+          <div>
+            <PokeSearch handlePokeSearch={this.handlePokeSearch} />
+            <button onClick={this.handleSubmit}>Click to Find Pokemon</button>
+          </div>
          <PokesList showPokes={this.state.pokeState} />
       </main>
     )
