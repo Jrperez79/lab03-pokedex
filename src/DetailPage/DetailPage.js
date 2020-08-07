@@ -22,7 +22,7 @@ export default class DetailPage extends Component {
                 {
                     pokemon
                         ? <div>
-                        <p>{pokemon.pokemon}</p>
+                        <p className="poke-name">{pokemon.pokemon}</p>
                         <p>Defense: {pokemon.defense}</p>
                         <p>Attack: {pokemon.attack}</p>
                         <img src={pokemon.url_image} alt={pokemon.pokemon} />

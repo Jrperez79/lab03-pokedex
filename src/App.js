@@ -15,13 +15,14 @@ export default class App extends Component {
   render() {
     return (
       <>
-      <div>
+      <main>
           <Router>
               <header>
-                <li>
+                <h1>Pokemon - Pokedex!</h1>
+                <li className="left-header">
                   <Link to="/detail">Detail</Link>
                 </li>
-                <li>
+                <li className="right-header">
                   <Link to="/">Home</Link>
                 </li>
               </header>
@@ -38,7 +39,7 @@ export default class App extends Component {
                   />
               </Switch>
           </Router>
-      </div>
+      </main>
       </>
     )
   }

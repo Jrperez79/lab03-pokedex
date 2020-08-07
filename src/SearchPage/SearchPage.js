@@ -27,7 +27,7 @@ export default class SearchPage extends Component {
 
         return (
             <div>
-                <input onChange={(e) => this.setState({ search: e.target.value })} />  
+                <input placeholder="Enter Text" onChange={(e) => this.setState({ search: e.target.value })} />  
                 <select onChange={(e) => { this.setState({ searchBy: e.target.value })}} >
                     <option value='pokemon'>Name</option>
                     <option value='type'>Type</option>
