@@ -1,42 +1,46 @@
 import React, { Component } from 'react'
-import request from 'superagent';
-import Header from './Header.js';
-import PokesList from './PokesList.js';
-import PokeSearch from './PokeSearch.js';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom';
+import SearchPage from './SearchPage/SearchPage.js';
+import DetailPage from './DetailPage/DetailPage.js';
 import './App.css';
 
 
 
 export default class App extends Component {
-  state = {
-    search: '',
-    pokeState: [],
-  }
-  
-  handleSubmit = async () => {
-    const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=800&pokemon=${this.state.search}`)
-
-    this.setState({
-      pokeState: data.body.results
-    })
-  }
-
-  handlePokeSearch = (e) => {
-    const value = e.target.value;
-    this.setState({search: value });
-  }
-
   render() {
     return (
-      <main>
-          <Header />
-          <div>
-            <PokeSearch handlePokeSearch={this.handlePokeSearch} />
-            <button onClick={this.handleSubmit}>Click to Find Pokemon</button>
-          </div>
-         <PokesList showPokes={this.state.pokeState} />
-      </main>
+      <>
+      <div>
+          <Router>
+              <header>
+                <h1>Pokemon - Pokedex!</h1>
+                <li className="left-header">
+                  <Link to="/detail">Detail</Link>
+                </li>
+                <li className="right-header">
+                  <Link to="/">Home</Link>
+                </li>
+              </header>
+              <Switch>
+                <Route
+                  path="/"
+                  exact
+                  render={(routerProps) => <SearchPage {...routerProps} />} 
+                />
+                  <Route 
+                    path="/detail/:myPokemonId"
+                    exact
+                    render={(routerProps) => <DetailPage {...routerProps} />}
+                  />
+              </Switch>
+          </Router>
+      </div>
+      </>
     )
   }
 }
-
