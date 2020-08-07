@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-main {
+.search-main {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -48,6 +48,7 @@ h1 {
 input {
   height: 30px;
   font-size: 15px;
+  text-align: center;
 }
 
 img {
@@ -62,14 +63,16 @@ img {
   align-items: center;
 }
 
-.poke-list {
+.poke-item {
+  margin: 15px;
+  border: solid 2px #252323ff;
+  background-color: turquoise;
+  border-radius: 20px;
+  padding: 8px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
-  width: 300px;
-  list-style: none;
+  align-items: center;
 }
 
 button {
@@ -78,7 +81,6 @@ button {
   justify-content: center;
   align-content: center;
   margin-top: 5px;
-  margin-left: 70px;
 }
 
 .left-header {
@@ -92,12 +94,20 @@ button {
 }
 
 select {
-  width: 75px;
-  height: 30px;
+  width: 65px;
+  height: 20px;
 }
 
 .poke-name {
   text-transform: capitalize;
 }
-
-
+/*
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 300px;
+  list-style: none;
+  background-color: turquoise;
+  */

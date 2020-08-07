@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import SearchPage from './SearchPage/SearchPage.js';
 import DetailPage from './DetailPage/DetailPage.js';
-import styles from './App.css';
+import './App.css';
 
 
 
@@ -15,7 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-      <main>
+      <div>
           <Router>
               <header>
                 <h1>Pokemon - Pokedex!</h1>
@@ -39,7 +39,7 @@ export default class App extends Component {
                   />
               </Switch>
           </Router>
-      </main>
+      </div>
       </>
     )
   }

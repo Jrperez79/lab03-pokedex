@@ -18,11 +18,13 @@ export default class DetailPage extends Component {
         const { pokemon } = this.state;
 
         return (
-            <div>
+            <div className="poke-item">
                 {
                     pokemon
                         ? <div>
-                        <p className="poke-name">{pokemon.pokemon}</p>
+                        <h2 className="poke-name">{pokemon.pokemon}</h2>
+                        <p>Height: {pokemon.height} ft</p>
+                        <p>Weight: {pokemon.weight} lbs</p>
                         <p>Defense: {pokemon.defense}</p>
                         <p>Attack: {pokemon.attack}</p>
                         <img src={pokemon.url_image} alt={pokemon.pokemon} />

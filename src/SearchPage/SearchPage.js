@@ -26,9 +26,9 @@ export default class SearchPage extends Component {
         const { pokeState } = this.state;
 
         return (
-            <div>
-                <input placeholder="Enter Text" onChange={(e) => this.setState({ search: e.target.value })} />  
-                <select onChange={(e) => { this.setState({ searchBy: e.target.value })}} >
+            <div className="search-main">
+                <input className="input" placeholder="Enter Pokemon Here" onChange={(e) => this.setState({ search: e.target.value })} />  
+                <select className="select" onChange={(e) => { this.setState({ searchBy: e.target.value })}} >
                     <option value='pokemon'>Name</option>
                     <option value='type'>Type</option>
                     <option value='attack'>Attack</option>
