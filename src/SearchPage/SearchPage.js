@@ -25,7 +25,7 @@ export default class SearchPage extends Component {
                 search: search
             });
         }
-
+        // await is important because it helps keep the fetch in sync?
         await this.makeRequest()
     }
 
@@ -75,13 +75,15 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        const { pokeState, 
+        const { 
+                pokeState, 
                 currentPage, 
                 totalPages, 
             } = this.state;
 
         return (
             <div className="search-main">
+                <form onSubmit={this.handleSubmit}>
                 <input className="input" placeholder="Enter Pokemon Here" onChange={(e) => this.setState({ search: e.target.value })} value={this.state.search}/>  
                 <select className="select" onChange={(e) => { this.setState({ searchBy: e.target.value })}} value={this.state.searchBy}>
                     <option value='pokemon'>Name</option>
@@ -90,9 +92,10 @@ export default class SearchPage extends Component {
                     <option value='defense'>Defense</option>      
                 </select>
                 <button onClick={this.handleClick}>Find a Pokemon</button>
+                </form>
                 <div>
                 {
-                    <PokeList 
+                    <PokeList
                     handleNextClick={this.handleNextClick} handlePrevClick={this.handlePrevClick} 
                     currentPage={currentPage}
                     pokeState={pokeState}

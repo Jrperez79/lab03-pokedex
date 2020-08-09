@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import SearchPage from './SearchPage/SearchPage.js';
 import DetailPage from './DetailPage/DetailPage.js';
+import Header from './Header.js';
 import './App.css';
 
 
@@ -17,15 +18,7 @@ export default class App extends Component {
       <>
       <div>
           <Router>
-              <header>
-                <h1>Pokemon - Pokedex!</h1>
-                <li className="left-header">
-                  <Link to="/detail">Detail</Link>
-                </li>
-                <li className="right-header">
-                  <Link to="/">Home</Link>
-                </li>
-              </header>
+             <Header /> 
               <Switch>
                 <Route
                   path="/"

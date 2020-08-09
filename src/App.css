@@ -101,3 +101,14 @@ select {
 .poke-name {
   text-transform: capitalize;
 }
+
+.poke-type {
+  text-transform: capitalize;
+}
+
+.prev-next {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  
+}

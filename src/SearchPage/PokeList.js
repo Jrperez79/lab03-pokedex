@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PokeItem from './PokeItem.js';
 
-export default class PokesList extends Component {
+export default class PokeList extends Component {
     render() {
        const {
            pokeState,
@@ -14,20 +14,20 @@ export default class PokesList extends Component {
        return (
            <div>
                 {
-                   pokeState.length > 0 && <div>
+                   pokeState.length > 0 && <div className="prev-next">
                        {
                         Number(currentPage) !== 1
                         && <button onClick={handlePrevClick}>Prev</button>
                        }
+                       {currentPage} of {totalPages}
                        {
                         Number(currentPage) !== Number(totalPages) &&
                         <button onClick={handleNextClick}>Next</button>
                        }
-                       {currentPage} of {totalPages}
                     </div>
                 }
                     <div>
-                        {pokeState.map(pokemon => <PokeItem pokemon={pokemon} />)}
+                        {pokeState.map(pokemon => <PokeItem key={pokemon} pokemon={pokemon} />)}
                     </div>
            </div>
        )
