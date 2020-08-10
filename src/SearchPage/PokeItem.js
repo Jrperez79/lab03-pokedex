@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export default class PokesList extends Component {
+export default class PokeItem extends Component {
     render() {
         const {
             pokemon: {

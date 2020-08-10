@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
+import '../App.css';
 
 export default class DetailPage extends Component {
     state = { pokemon: null }
@@ -27,6 +28,7 @@ export default class DetailPage extends Component {
                         <p>Weight: {pokemon.weight} lbs</p>
                         <p>Defense: {pokemon.defense}</p>
                         <p>Attack: {pokemon.attack}</p>
+                        <p className="poke-type">Types: {pokemon.type_1}</p>
                         <img src={pokemon.url_image} alt={pokemon.pokemon} />
                     </div>
                         : <h2>LOADING</h2>
