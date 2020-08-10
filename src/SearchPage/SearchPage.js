@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import request from 'superagent';
 import PokeList from './PokeList.js';
+import '../App.css';
 
 export default class SearchPage extends Component {
     state = {
@@ -83,7 +84,7 @@ export default class SearchPage extends Component {
 
         return (
             <div className="search-main">
-                <form onSubmit={this.handleSubmit}>
+                <form  onSubmit={this.handleSubmit}>
                 <input className="input" placeholder="Enter Pokemon Here" onChange={(e) => this.setState({ search: e.target.value })} value={this.state.search}/>  
                 <select className="select" onChange={(e) => { this.setState({ searchBy: e.target.value })}} value={this.state.searchBy}>
                     <option value='pokemon'>Name</option>
